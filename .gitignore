@@ -37,3 +37,6 @@ test-results/
 # deployment
 .vercel
 .wrangler/
+
+# private planning notes (contains personal contact details — never publish)
+portfolio-plan.md
