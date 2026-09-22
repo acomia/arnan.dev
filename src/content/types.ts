@@ -20,8 +20,19 @@ export interface Profile {
   name: string;
   /** Job title, as it should read to a recruiter scanning the page. */
   title: string;
+  /**
+   * One line for the cover. Short enough to read in a glance, in his own
+   * words — the full summary belongs on the About sheet, not the hero.
+   */
+  tagline: string;
   /** First-person positioning statement. Two or three sentences, no more. */
   summary: string;
+  /**
+   * A second reading for the About sheet: the same career from the arc rather
+   * than the pitch. Assembled from facts already in `experience` and
+   * `projects` — it must never introduce a claim those do not support.
+   */
+  about: string;
   location: string;
   /**
    * Public email. Rendered obfuscated by the contact component — never inline
@@ -82,6 +93,8 @@ export interface ProjectImage {
   src: string;
   /** Describe what the screen shows, not that it is a screenshot. */
   alt: string;
+  /** Two or three words naming the plate, as a gallery labels one. */
+  caption: string;
   width: number;
   height: number;
 }
@@ -93,6 +106,13 @@ export interface Project {
   name: string;
   /** Client, employer, or "Personal project". */
   organization: string;
+  /** Which surface this one shipped on; the work sheet groups by it. */
+  platform: "mobile" | "web";
+  /**
+   * For a product that is one surface of a larger suite: the surface's name,
+   * matching the cover's key drawing so the two agree.
+   */
+  surface?: string;
   /** The role held on this specific project. */
   role: string;
   /** `YYYY-MM`. */
@@ -106,5 +126,15 @@ export interface Project {
   highlights: string[];
   /** `true` gives the project a full case study page at `/work/<slug>`. */
   featured: boolean;
+  /**
+   * The one piece of work the sheet leads with. Drawn at key-drawing scale;
+   * exactly one project should carry it.
+   */
+  lead?: boolean;
   image?: ProjectImage;
+  /**
+   * Real captures of the shipped product, in reading order. A project that
+   * has these leads with them; one that does not leads with its drawing.
+   */
+  gallery?: ProjectImage[];
 }

@@ -38,8 +38,13 @@ test-results/
 .vercel
 .wrangler/
 
-# private planning notes (contains personal contact details — never publish)
+# private notes — never publish (this repo is public)
+# portfolio-plan.md: personal contact details
+# PRODUCT.md: job-search intent, target markets, internal framing
+# .impeccable/: design working notes, candid critiques, review screenshots
 portfolio-plan.md
+PRODUCT.md
+.impeccable/
 
 # certificates
 *.pem

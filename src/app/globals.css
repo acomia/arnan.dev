@@ -1,1 +1,229 @@
 @import "tailwindcss";
+
+/*
+ * The Drawing Set — contemporary construction documents.
+ *
+ * Light is a printed sheet under office light. Dark is the same set open in
+ * CAD model space: a blue-grey drafting field, deliberately not neutral
+ * near-black, with warm-white hairlines. Neither is an inversion of the other.
+ *
+ * Hierarchy is carried by LINE WEIGHT, not by colour, shadow or elevation.
+ * A drawing has no cards, no boxes, no gradients.
+ */
+@theme {
+  --color-sheet: #f4f4f2;
+  --color-sheet-alt: #eaeae7;
+  --color-line: #16181a;
+  --color-line-body: #33383d;
+  --color-line-soft: #5c6166;
+  --color-line-faint: #6c7176;
+  --color-line-hair: #c3c6c4;
+  --color-revision: #c0342b;
+
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-letter: var(--font-barlow-condensed), var(--font-barlow), sans-serif;
+  --font-mono: var(--font-spline-mono), ui-monospace, monospace;
+}
+
+:root {
+  /* Graded pen weights, as a drawing set uses them. */
+  --lw-hair: 0.5px;
+  --lw-thin: 1px;
+  --lw-med: 1.5px;
+  --lw-heavy: 3px;
+  --title-block-h: 6rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --title-block-h: 3.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-sheet: #1b2127;
+    --color-sheet-alt: #222a31;
+    --color-line: #e8eae6;
+    --color-line-body: #cbd3d8;
+    --color-line-soft: #9ba6ae;
+    --color-line-faint: #8a959c;
+    --color-line-hair: #35414a;
+    --color-revision: #e4695e;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* The fixed title block must never cover the sheet you jumped to. */
+    scroll-padding-top: calc(var(--title-block-h) + 1.5rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-sheet);
+    color: var(--color-line);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+  }
+
+  /* The surfaces the browser draws belong to the drawing too. */
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-revision) 24%, transparent);
+    color: var(--color-line);
+  }
+
+  :focus-visible {
+    outline: var(--lw-med) solid var(--color-revision);
+    outline-offset: 3px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: from-font;
+  }
+
+  /* Dimension strings and schedules align in columns. */
+  time,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  * {
+    scrollbar-color: var(--color-line-hair) transparent;
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-line-hair);
+    border: 3px solid var(--color-sheet);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-line-soft);
+  }
+}
+
+/* Drafting lettering: monolinear, tracked, uppercase annotation. */
+@utility lettering {
+  font-family: var(--font-letter);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@utility annotation {
+  font-family: var(--font-letter);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-line-soft);
+}
+
+@utility dim-string {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-line-soft);
+}
+
+/*
+ * Linework draws itself once as a sheet is first reached. The from-state is
+ * applied by script only when motion is welcome, so with JavaScript off or
+ * reduced motion requested the drawing is simply already inked.
+ */
+@keyframes ink {
+  from {
+    stroke-dashoffset: var(--ink-length, 400);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+[data-ink="armed"] [data-draw] {
+  stroke-dasharray: var(--ink-length, 400);
+  stroke-dashoffset: var(--ink-length, 400);
+}
+
+[data-ink="armed"] [data-draw][data-drawn="true"] {
+  animation: ink 900ms cubic-bezier(0.22, 0.85, 0.3, 1) both;
+  animation-delay: var(--ink-delay, 0ms);
+}
+
+@media print {
+  :root {
+    --color-sheet: #ffffff;
+    --color-sheet-alt: #ffffff;
+    --color-line: #000000;
+    --color-line-soft: #333333;
+    --color-line-hair: #9aa0a4;
+    --color-revision: #a52a20;
+  }
+
+  /* Every line is inked on paper, whether or not it was ever scrolled to. */
+  [data-ink] [data-draw],
+  [data-draw] {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  [data-title-block] {
+    position: static !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  /*
+   * On paper this is a CV, not a scroll. The screen's generous sheet spacing
+   * and the timeline's duration-proportional row heights are screen devices;
+   * on paper they only waste pages, so both collapse to their content.
+   */
+  section {
+    padding-block: 1.1rem !important;
+  }
+
+  #experience li {
+    min-height: 0 !important;
+  }
+
+  main figure {
+    margin-top: 1.25rem !important;
+  }
+
+  section,
+  article,
+  li {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

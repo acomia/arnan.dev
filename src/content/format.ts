@@ -54,3 +54,16 @@ export function yearsSince(yearMonth: string, now: Date = new Date()): number {
     (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month);
   return Math.floor(elapsed / 12);
 }
+
+/** Whole months between two `YYYY-MM` values; a null end means up to now. */
+export function monthsBetween(
+  start: string,
+  end: string | null,
+  now: Date = new Date(),
+): number {
+  const [sy, sm] = start.split("-").map(Number);
+  const [ey, em] = end
+    ? end.split("-").map(Number)
+    : [now.getFullYear(), now.getMonth() + 1];
+  return Math.max(1, (ey - sy) * 12 + (em - sm));
+}

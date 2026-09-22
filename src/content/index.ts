@@ -5,4 +5,10 @@ export { profile } from "./profile";
 export { skillGroups } from "./skills";
 export { roles } from "./experience";
 export { education, awards } from "./education";
-export { projects, featuredProjects, getProject } from "./projects";
+export {
+  projects,
+  featuredProjects,
+  suiteProjects,
+  otherProjects,
+  getProject,
+} from "./projects";

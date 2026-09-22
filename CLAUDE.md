@@ -55,11 +55,15 @@ wait for animation. Target Lighthouse Performance ≥ 95 and Accessibility 100.
 
 **This repository is public.** Treat everything committed as published.
 
-- **Never publish Arnan's phone number**, anywhere, including in any hosted
-  PDF. It is on his resume; it must not reach the site.
-- The public email is `arnancomia.dev@gmail.com`, rendered obfuscated rather
-  than as a plain `mailto:` in markup. The address on the older resume is out
-  of date.
+- The hosted resume at `public/arnan-comia-cv.pdf` is Arnan's real CV and
+  **does contain his mobile number**. He was told it would be public and
+  explicitly authorised it on 2026-09-22. Do not strip it, swap the file, or
+  re-raise the decision; it is settled.
+- Do not add the phone number anywhere else — not to the page markup, the
+  content layer, or metadata. The PDF is the only place it belongs.
+- The public email is `arnancomia.trey@gmail.com`, rendered obfuscated rather
+  than as a plain `mailto:` in markup. It matches the address on his resume;
+  the two must not drift apart.
 - **Never invent metrics.** Arnan has no figures he can stand behind, so
   content describes scope and technical decisions instead. If a number would
   be persuasive, ask him for it rather than estimating one.
