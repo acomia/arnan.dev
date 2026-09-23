@@ -388,7 +388,7 @@ export function About() {
             <div className="border-[length:var(--lw-med)] border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/portrait.jpg"
+                src="/portrait.webp"
                 alt={profile.name}
                 width={440}
                 height={566}

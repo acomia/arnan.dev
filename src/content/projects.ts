@@ -52,21 +52,21 @@ export const projects: Project[] = [
     lead: true,
     gallery: [
       {
-        src: "/work/kabin-home.jpg",
+        src: "/work/kabin-home.webp",
         caption: "Home",
         alt: "Kabin home screen: the guest's upcoming stay in Las Vegas, a pre check-in action, and extras to order before arrival.",
         width: 800,
         height: 1707,
       },
       {
-        src: "/work/kabin-reservations.jpg",
+        src: "/work/kabin-reservations.webp",
         caption: "Reservation",
         alt: "Kabin reservation summary: dates, crew, rooms and total for a Kyoto stay, with a pre check-in action.",
         width: 800,
         height: 1783,
       },
       {
-        src: "/work/kabin-checkin.jpg",
+        src: "/work/kabin-checkin.webp",
         caption: "Identity check",
         alt: "Kabin identity verification step: scan your passport, with camera capture or upload.",
         width: 800,
@@ -107,21 +107,21 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/renta-home.jpg",
+        src: "/work/renta-home.webp",
         caption: "Home",
         alt: "Renta home screen: a featured gown carousel, quick actions, and the customer's upcoming booking.",
         width: 800,
         height: 1739,
       },
       {
-        src: "/work/renta-browse.jpg",
+        src: "/work/renta-browse.webp",
         caption: "Browse",
         alt: "Renta browse screen: search, a featured collection, and category filters for gowns, Filipiniana, barong and costumes.",
         width: 800,
         height: 1739,
       },
       {
-        src: "/work/renta-bookings.jpg",
+        src: "/work/renta-bookings.webp",
         caption: "Bookings",
         alt: "Renta bookings screen: a confirmed rental with its fitting and pickup dates on a progress track.",
         width: 800,
@@ -150,21 +150,21 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/vemasys-map.jpg",
+        src: "/work/vemasys-map.webp",
         caption: "Map",
         alt: "Vemasys map view: a vessel's position and next planned berth on a live chart.",
         width: 800,
         height: 1731,
       },
       {
-        src: "/work/vemasys-planning.jpg",
+        src: "/work/vemasys-planning.webp",
         caption: "Planning",
         alt: "Vemasys planning view: scheduled berths with tonnage, cargo and unloading actions.",
         width: 800,
         height: 1731,
       },
       {
-        src: "/work/vemasys-technical.jpg",
+        src: "/work/vemasys-technical.webp",
         caption: "Technical",
         alt: "Vemasys technical view: gasoil tank levels and bunkering records for the vessel.",
         width: 800,
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/onelsgh-nexus.jpg",
+        src: "/work/onelsgh-nexus.webp",
         caption: "Student dashboard",
         alt: "OneLSGH Nexus: a student dashboard showing attendance percentage, school days, lates, absences and general average.",
         width: 800,
@@ -230,14 +230,14 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/kabin-web.jpg",
+        src: "/work/kabin-web.webp",
         caption: "Home",
         alt: "Kabin Web home: a direct-booking banner, bilingual currency and language switcher, and an online check-in entry point over a Kyoto property.",
         width: 1200,
         height: 750,
       },
       {
-        src: "/work/kabin-web-stay.jpg",
+        src: "/work/kabin-web-stay.webp",
         caption: "Property & rooms",
         alt: "A Kabin Web property page: the stay's photo gallery and booking panel, with room types showing occupancy, size, and member versus non-member rates.",
         width: 1800,
@@ -274,18 +274,18 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/materia-reservations.jpg",
+        src: "/work/materia-reservations.webp",
         caption: "Reservations board",
         alt: "Materia reservations board: upcoming stays as cards with room, guest count, status and pre check-in progress, beside a sidebar for housekeeping, door locks, tasks and chat.",
-        width: 1400,
-        height: 815,
+        width: 1100,
+        height: 640,
       },
       {
-        src: "/work/materia-detail.jpg",
+        src: "/work/materia-detail.webp",
         caption: "Reservation detail",
         alt: "A single Materia reservation: dates, room, party, payment status, channel and bill, with the guest record and the rooms to be issued codes. Guest contact fields are redacted.",
-        width: 1600,
-        height: 923,
+        width: 1100,
+        height: 634,
       },
     ],
   },
@@ -325,18 +325,18 @@ export const projects: Project[] = [
     featured: true,
     gallery: [
       {
-        src: "/work/kabinpad-welcome.jpg",
+        src: "/work/kabinpad-welcome.webp",
         caption: "Lobby welcome",
         alt: "The Kabin Pad kiosk welcome screen: check-in and check-out times, a QR code to install the app, and the property's wifi details.",
-        width: 1600,
-        height: 1000,
+        width: 1100,
+        height: 687,
       },
       {
-        src: "/work/kabinpad-find.jpg",
+        src: "/work/kabinpad-find.webp",
         caption: "Find reservation",
         alt: "The kiosk check-in step: scan a QR code or enter a reservation number or last name to find the booking.",
-        width: 1600,
-        height: 1000,
+        width: 1100,
+        height: 687,
       },
     ],
   },

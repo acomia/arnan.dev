@@ -5,7 +5,9 @@ import "./globals.css";
 
 const barlow = Barlow({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  // Body prose only, and it never goes bold; the tracked caps and every
+  // weighted mark on the page are Barlow Semi Condensed.
+  weight: ["400"],
   variable: "--font-barlow",
   display: "swap",
 });
@@ -19,6 +21,7 @@ const barlowCondensed = Barlow_Semi_Condensed({
 
 const splineMono = Spline_Sans_Mono({
   subsets: ["latin"],
+  weight: ["400"],
   variable: "--font-spline-mono",
   display: "swap",
 });
