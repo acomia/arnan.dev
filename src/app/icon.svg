@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Arnan Comia">
+  <!--
+    A drafting section mark, the same device the title block uses for
+    navigation: a ruled disc carrying its letter. Solid rather than outlined
+    so it survives a 16px browser tab.
+  -->
+  <rect width="64" height="64" rx="8" fill="#16181a"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#f4f4f2" stroke-width="3.5"/>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="700" fill="#f4f4f2">A</text>
+</svg>

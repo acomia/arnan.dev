@@ -48,3 +48,4 @@ PRODUCT.md
 
 # certificates
 *.pem
+.env*
